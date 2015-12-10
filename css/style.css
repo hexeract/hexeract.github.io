@@ -1,0 +1,46 @@
+#mainFab {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+}
+
+.nano > .nano-pane{
+  border-radius: 0!important;
+  -webkit-border-radius: 0!important;
+  -moz-border-radius: 0!important;
+  right: -1px!important;
+}
+.nano > .nano-pane > .nano-slider{
+  border-radius: 0!important;
+  -webkit-border-radius: 0!important;
+  -moz-border-radius: 0!important;
+}
+#main-container{
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@media screen and (max-width: 960px) {
+  #main-container{
+    top: 48px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  #main-container{
+    top: 56px;
+  }
+}
+/*
+body > md-toolbar {
+  position: fixed;
+  top: 0;
+}*/
+
+.btn-lg{
+  font-size: 20px;
+  padding: 30px;
+}

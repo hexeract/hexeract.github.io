@@ -1,0 +1,33 @@
+{
+  "name": "app-installer",
+  "description": "Easily install applications for linux, themes, icons and custom scripts.",
+  "main": "web/index.html",
+  "authors": [
+    "Matias Pierobon <matias.pierobonm@gmail.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "app-installer"
+  ],
+  "homepage": "https://github.com/matias-pierobon/app-installer",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8",
+    "angular-material": "master",
+    "jquery": "~2.1.4",
+    "angular-resource": "~1.4.8",
+    "nanoscroller": "~0.8.7",
+    "angular-nanoscroller": "~0.2.1"
+  },
+  "resolutions": {
+    "angular": "1.4.8"
+  }
+}
