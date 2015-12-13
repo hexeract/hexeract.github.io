@@ -3,256 +3,514 @@
     "id": 1,
     "nombre": "Atom Editor",
     "descr": "Powerful open source text and code editor",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/atom.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/atom.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : "ppa",
+        "repository": "ppa:webupd8team/atom",
+        "package": "atom"
+      }
+    }
   }, {
     "id": 2,
     "nombre": "Autokey",
     "descr": "Desktop automation program",
-    "logo": "http://do-you-linux.com/wp-content/uploads/2014/09/autokey-icon.jpg"
+    "logo": "http://do-you-linux.com/wp-content/uploads/2014/09/autokey-icon.jpg",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : "apt",
+        "package": "autokey-gtk"
+      }
+    }
   }, {
     "id": 3,
     "nombre": "Birdie",
     "descr": "Twitter client",
-    "logo": "https://raw.githubusercontent.com/moka-project/moka-icon-theme/master/Moka/64x64/apps/birdie.png"
+    "logo": "https://raw.githubusercontent.com/moka-project/moka-icon-theme/master/Moka/64x64/apps/birdie.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 4,
     "nombre": "Blender",
     "descr": "3D suite for modeling, animation and rendering",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/blender.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/blender.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 5 ,
     "nombre": "Brackets",
     "descr": "Powerful open source text and code editor",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/brackets.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/brackets.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 6,
     "nombre": "Brasero",
     "descr": "burn, copy and erase CD and DVD",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/disk-burner.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/disk-burner.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 7,
     "nombre": "Caffeine",
     "descr": "disable the sleep powersaving mode",
-    "logo": "http://icons.iconarchive.com/icons/alecive/flatwoken/512/Apps-Caffeine-icon.png"
+    "logo": "http://icons.iconarchive.com/icons/alecive/flatwoken/512/Apps-Caffeine-icon.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 8,
     "nombre": "Chrome",
     "descr": "Google Chrome web browser",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/google-chrome.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/google-chrome.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   },{
     "id": 9,
     "nombre": "Chrome Beta",
     "descr": "Google Chrome web browser (beta) ",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/google-chrome.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/google-chrome.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 10,
     "nombre": "Chromium",
     "descr": "Open source browser project from which Chrome is based",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/chromium-browser.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/chromium-browser.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 11,
     "nombre": "Clementine",
     "descr": "Music player",
-    "logo": "http://icons.iconarchive.com/icons/cornmanthe3rd/plex/512/Media-clementine-icon.png"
+    "logo": "http://icons.iconarchive.com/icons/cornmanthe3rd/plex/512/Media-clementine-icon.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 12,
     "nombre": "Conky Manager",
     "descr": "GUI for Conky",
-    "logo": "https://camo.githubusercontent.com/c542435e7f50507301e26a5661c6549d07043c2f/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f363839383232382f323436303339372f63643464303466362d616636392d313165332d393730322d3366663535386136623861332e706e67"
+    "logo": "https://camo.githubusercontent.com/c542435e7f50507301e26a5661c6549d07043c2f/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f363839383232382f323436303339372f63643464303466362d616636392d313165332d393730322d3366663535386136623861332e706e67",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 14,
     "nombre": "Deluge",
     "descr": "Free BitTorrent Client",
-    "logo": "http://www.iconarchive.com/download/i76655/xenatt/the-circle/App-Deluge.ico"
+    "logo": "http://www.iconarchive.com/download/i76655/xenatt/the-circle/App-Deluge.ico",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 15,
     "nombre": "Dropbox",
     "descr": "Sync files across computers and to the web",
-    "logo": "http://www.iconarchive.com/download/i80439/uiconstock/socialmedia/Dropbox.ico"
+    "logo": "http://www.iconarchive.com/download/i80439/uiconstock/socialmedia/Dropbox.ico",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 16,
     "nombre": "Dukto",
     "descr": "easy file transfer tool for LAN use",
-    "logo": "http://allaboutwindowsphone.com/images/appicons/412820.png"
+    "logo": "http://allaboutwindowsphone.com/images/appicons/412820.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 17,
     "nombre": "Everpad",
     "descr": "Evernote client well integrated with linux desktop",
-    "logo": "https://extensions.gnome.org/static/extension-data/icons/icon_677.png"
+    "logo": "https://extensions.gnome.org/static/extension-data/icons/icon_677.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 18,
     "nombre": "FileZilla",
     "descr": "full featured FTP client",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/filezilla.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/filezilla.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 19,
     "nombre": "Firefox",
     "descr": "Open source web browser",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/firefox.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/firefox.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 20,
     "nombre": "Geary",
     "descr": "Email reader for the GNOME desktop",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/internet-mail.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/internet-mail.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 21 ,
     "nombre": "Gimp",
     "descr": "Image manipulation program",
-    "logo": "http://icons.iconarchive.com/icons/cornmanthe3rd/plex/512/Media-gimp-icon.png"
+    "logo": "http://icons.iconarchive.com/icons/cornmanthe3rd/plex/512/Media-gimp-icon.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 22,
     "nombre": "Gparted",
     "descr": "Tool to create and manage disks and partitions",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/disk-partition-manager.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/disk-partition-manager.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 23,
     "nombre": "Grive Tools",
     "descr": "Instalation of Google Drive on Ubuntu",
-    "logo": "http://icons.iconarchive.com/icons/marcus-roberto/google-play/256/Google-Drive-icon.png"
+    "logo": "http://icons.iconarchive.com/icons/marcus-roberto/google-play/256/Google-Drive-icon.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 24,
     "nombre": "Grub Customizer",
     "descr": "GUI to customize grub/burg",
-    "logo": "http://static.wixstatic.com/media/9cb4a6_98a71f3689f58fdaa0351c6fb4b9df77.png_srz_314_314_85_22_0.50_1.20_0.00_png_srz"
+    "logo": "http://static.wixstatic.com/media/9cb4a6_98a71f3689f58fdaa0351c6fb4b9df77.png_srz_314_314_85_22_0.50_1.20_0.00_png_srz",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   },{
     "id": 25,
     "nombre": "HexChat",
     "descr": "IRC client based on XChat",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/xchat.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/xchat.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 26,
     "nombre": "Inkscape",
     "descr": "Vector graphics software",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/inkscape.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/inkscape.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 27,
     "nombre": "JDownloader",
     "descr": "open source Downloader made in java",
-    "logo": "http://orig08.deviantart.net/ccae/f/2009/158/7/1/jdownloader_icon_by_obinoobie.png"
+    "logo": "http://orig08.deviantart.net/ccae/f/2009/158/7/1/jdownloader_icon_by_obinoobie.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 28,
     "nombre": "KODI",
     "descr": "Media center",
-    "logo": "http://kodi.wiki/images/thumb/8/8e/Thumbnail-symbol-transparent.png/300px-Thumbnail-symbol-transparent.png"
+    "logo": "http://kodi.wiki/images/thumb/8/8e/Thumbnail-symbol-transparent.png/300px-Thumbnail-symbol-transparent.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   },{
     "id": 29,
     "nombre": "Libreoffice",
     "descr": "Powerful office suite",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/libreoffice.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/libreoffice.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 30,
     "nombre": "My Weather",
     "descr": "simple indicator for the weather",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/gnome-weather.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/gnome-weather.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 31,
     "nombre": "Pidgin",
     "descr": "instant messasing client",
-    "logo": "https://raw.githubusercontent.com/moka-project/moka-icon-theme/master/Moka/96x96%402x/apps/pidgin.png"
+    "logo": "https://raw.githubusercontent.com/moka-project/moka-icon-theme/master/Moka/96x96%402x/apps/pidgin.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 32,
     "nombre": "Plex ",
     "descr": "Media center",
-    "logo": "https://s3.mzstatic.com/us/r30/Purple69/v4/e6/4c/f0/e64cf005-c867-f154-1fa0-fd8ea29611ca/icon175x175.png"
+    "logo": "https://s3.mzstatic.com/us/r30/Purple69/v4/e6/4c/f0/e64cf005-c867-f154-1fa0-fd8ea29611ca/icon175x175.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 33,
     "nombre": "Popcorn Time",
     "descr": "Watch movies and TV shows from the BitTorrent network",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Popcorn_Time_logo.png"
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Popcorn_Time_logo.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 34,
     "nombre": "SMPlayer",
     "descr": "Free media player",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/multimedia-video-player.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/multimedia-video-player.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 35,
     "nombre": "SimpleScreenRecorder",
     "descr": "App to record your screen",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/applets-screenshooter.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/applets-screenshooter.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 36 ,
     "nombre": "Spotify",
     "descr": "Music streaming service",
-    "logo": "http://www.iconarchive.com/download/i98446/dakirby309/simply-styled/Spotify.ico"
+    "logo": "http://www.iconarchive.com/download/i98446/dakirby309/simply-styled/Spotify.ico",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 37,
     "nombre": "Sublime 3",
     "descr": "IDE for writing code",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/sublime-text.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/sublime-text.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 38,
     "nombre": "Synapse",
     "descr": "Semantic launcher to start apps and find files",
-    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/synapse-icon.png"
+    "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/synapse-icon.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 39,
     "nombre": "TeamViewer",
     "descr": "Remotely control your desktop",
-    "logo": "http://pre05.deviantart.net/66d4/th/pre/f/2014/160/3/e/teamviewer_by_bitingduke-d7lpfbz.png"
+    "logo": "http://pre05.deviantart.net/66d4/th/pre/f/2014/160/3/e/teamviewer_by_bitingduke-d7lpfbz.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   },{
     "id": 40,
     "nombre": "Nomachinenx",
     "descr": "Fast, low-latency remote desktop",
-    "logo": "http://www.rinorusso.it/wp-content/uploads/2011/12/nomachine.jpg"
+    "logo": "http://www.rinorusso.it/wp-content/uploads/2011/12/nomachine.jpg",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 41,
     "nombre": "Thunderbird",
     "descr": "Email reader and composer",
-    "logo": "https://cdn2.iconfinder.com/data/icons/metro-uinvert-dock/256/Thunderbird.png"
+    "logo": "https://cdn2.iconfinder.com/data/icons/metro-uinvert-dock/256/Thunderbird.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 42,
     "nombre": "Transmission",
     "descr": "Simple BitTorrent client",
-    "logo": "http://icons.iconarchive.com/icons/blackvariant/button-ui-app-pack-one/64/Transmission-icon.png"
+    "logo": "http://icons.iconarchive.com/icons/blackvariant/button-ui-app-pack-one/64/Transmission-icon.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 43,
     "nombre": "Qbittorrent",
     "descr": "full featured BitTorrent client",
-    "logo": "https://avatars2.githubusercontent.com/u/2131270?v=3&s=400"
+    "logo": "https://avatars2.githubusercontent.com/u/2131270?v=3&s=400",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   },{
     "id": 44,
     "nombre": "Tweak Tools",
     "descr": "ElementaryOS tweak options",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/preferences-desktop.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/preferences-desktop.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 45,
     "nombre": "Typhoon",
     "descr": "quickly check the weather",
-    "logo": "https://cdn3.iconfinder.com/data/icons/weather-icons/32/Tornado-512.png"
+    "logo": "https://cdn3.iconfinder.com/data/icons/weather-icons/32/Tornado-512.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 46,
     "nombre": "Unetbootin",
     "descr": "allows the intalations for various OS's through USB drives",
-    "logo": "http://fsdportal.com/wp-content/uploads/2012/06/unetbootin-icon.png"
+    "logo": "http://fsdportal.com/wp-content/uploads/2012/06/unetbootin-icon.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 47,
     "nombre": "Up-Clock",
     "descr": "app inspired by Ubuntu Touch clock application",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/accessories-clock.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/accessories-clock.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 48,
     "nombre": "VLC",
     "descr": "Excellent Free and Open source media player",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/vlc.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/vlc.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 49,
     "nombre": "Vocal",
     "descr": "Podcast app made for ElementaryOS",
-    "logo": "http://webmii.com/images/mic.png"
+    "logo": "http://webmii.com/images/mic.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 50,
     "nombre": "Wine",
     "descr": "Run windows programs with wine",
-    "logo": "http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/wine-icon.png"
+    "logo": "http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/wine-icon.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 51 ,
     "nombre": "PlayonLinux",
     "descr": "App that lets you play games using wine with minimal configurationa",
-    "logo": "https://3.bp.blogspot.com/-jOZvT0E-UxI/TzQjFzO00wI/AAAAAAAADF4/11MMNDCPKc4/s1600/1.png"
+    "logo": "https://3.bp.blogspot.com/-jOZvT0E-UxI/TzQjFzO00wI/AAAAAAAADF4/11MMNDCPKc4/s1600/1.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }, {
     "id": 52,
     "nombre": "Audience",
     "descr": "Media player made for ElementaryOS",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/multimedia-video-player.png"
+    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/multimedia-video-player.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : ""
+      }
+    }
   }]
 }
