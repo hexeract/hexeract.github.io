@@ -29,7 +29,9 @@
     "logo": "https://raw.githubusercontent.com/moka-project/moka-icon-theme/master/Moka/64x64/apps/birdie.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository": "ppa:birdie-team/stable",
+        "package": "birdie"
       }
     }
   }, {
@@ -39,7 +41,9 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/blender.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository": "ppa:irie/blender",
+        "package": "blender"
       }
     }
   }, {
@@ -49,7 +53,9 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/brackets.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository": "ppa:webupd8team/brackets",
+        "package": "brackets"
       }
     }
   }, {
@@ -59,7 +65,8 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/disk-burner.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "apt",
+        "package": "brasero"
       }
     }
   }, {
@@ -69,7 +76,8 @@
     "logo": "http://icons.iconarchive.com/icons/alecive/flatwoken/512/Apps-Caffeine-icon.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "apt",
+        "package": "caffeine-plus"
       }
     }
   }, {
@@ -79,7 +87,13 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/google-chrome.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "pkey",
+        "package" : {
+          "key" : "https://dl-ssl.google.com/linux/linux_signing_key.pub",
+          "url" : "http://dl.google.com/linux/chrome/deb/",
+          "version" : "stable main",
+          "name" : "google-chrome-stable"
+        }
       }
     }
   },{
@@ -89,7 +103,13 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/google-chrome.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "pkey",
+        "package" : {
+          "key" : "https://dl-ssl.google.com/linux/linux_signing_key.pub",
+          "url" : "http://dl.google.com/linux/chrome/deb/",
+          "version" : "beta",
+          "name" : "google-chrome-beta"
+        }
       }
     }
   }, {
@@ -99,7 +119,9 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/chromium-browser.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository": "ppa:chromium-daily/stable",
+        "package": "chromium-browser"
       }
     }
   }, {
@@ -109,7 +131,9 @@
     "logo": "http://icons.iconarchive.com/icons/cornmanthe3rd/plex/512/Media-clementine-icon.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository": "ppa:me-davidsansome/clementine",
+        "package" : "clementine"
       }
     }
   }, {
@@ -119,7 +143,9 @@
     "logo": "https://camo.githubusercontent.com/c542435e7f50507301e26a5661c6549d07043c2f/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f363839383232382f323436303339372f63643464303466362d616636392d313165332d393730322d3366663535386136623861332e706e67",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository" : "apt-add-repository ppa:teejee2008/ppa",
+        "package" : "conky-manager"
       }
     }
   }, {
@@ -129,7 +155,9 @@
     "logo": "http://www.iconarchive.com/download/i76655/xenatt/the-circle/App-Deluge.ico",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository" : "ppa:deluge-team/ppa",
+        "package": "deluge"
       }
     }
   }, {
@@ -139,7 +167,8 @@
     "logo": "http://www.iconarchive.com/download/i80439/uiconstock/socialmedia/Dropbox.ico",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "manual",
+        "install": ["wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_$arch.deb -O $tmp/dropbox.deb", "dpkg -i $tmp/dropbox.deb", "apt-get install -f"]
       }
     }
   }, {
@@ -149,7 +178,8 @@
     "logo": "http://allaboutwindowsphone.com/images/appicons/412820.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "manual",
+        "install" : ["echo 'deb http://download.opensuse.org/repositories/home:/colomboem/xUbuntu_12.04/ /' > /etc/apt/sources.list.d/dukto.list","apt-get install dukto -y"]
       }
     }
   }, {
@@ -159,7 +189,8 @@
     "logo": "https://extensions.gnome.org/static/extension-data/icons/icon_677.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "apt",
+        "package": "everpad"
       }
     }
   }, {
@@ -169,7 +200,8 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/filezilla.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "apt",
+        "package": "filezilla"
       }
     }
   }, {
@@ -179,7 +211,8 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/firefox.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "apt",
+        "package" : "firefox"
       }
     }
   }, {
@@ -189,7 +222,8 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/internet-mail.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "apt",
+        "package" : "geary"
       }
     }
   }, {
@@ -199,7 +233,9 @@
     "logo": "http://icons.iconarchive.com/icons/cornmanthe3rd/plex/512/Media-gimp-icon.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository" : "ppa:otto-kesselgulasch/gimp",
+        "package" : "gimp"
       }
     }
   }, {
@@ -209,7 +245,8 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/disk-partition-manager.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "apt",
+        "package": "gparted"
       }
     }
   }, {
@@ -219,7 +256,9 @@
     "logo": "http://icons.iconarchive.com/icons/marcus-roberto/google-play/256/Google-Drive-icon.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository": "ppa:thefanclub/grive-tools",
+        "package" : "grive-tools"
       }
     }
   }, {
@@ -229,7 +268,9 @@
     "logo": "http://static.wixstatic.com/media/9cb4a6_98a71f3689f58fdaa0351c6fb4b9df77.png_srz_314_314_85_22_0.50_1.20_0.00_png_srz",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository": "ppa:danielrichter2007/grub-customizer",
+        "package" : "grub-customizer"
       }
     }
   },{
@@ -239,7 +280,9 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/xchat.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository": "ppa:gwendal-lebihan-dev/hexchat-stable",
+        "package" : "hexchat"
       }
     }
   }, {
@@ -249,7 +292,9 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/inkscape.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository" : "ppa:inkscape.dev/stable",
+        "package" : "inkscape"
       }
     }
   }, {
@@ -259,7 +304,9 @@
     "logo": "http://orig08.deviantart.net/ccae/f/2009/158/7/1/jdownloader_icon_by_obinoobie.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository" : "ppa:jd-team/jdownloader",
+        "package" : "jdownloader-installer"
       }
     }
   }, {
@@ -269,7 +316,8 @@
     "logo": "http://kodi.wiki/images/thumb/8/8e/Thumbnail-symbol-transparent.png/300px-Thumbnail-symbol-transparent.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "apt",
+        "package" : "kodi"
       }
     }
   },{
@@ -279,27 +327,21 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/libreoffice.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository": "ppa:libreoffice/libreoffice-5-0",
+        "package": "libreoffice"
       }
     }
-  }, {
-    "id": 30,
-    "nombre": "My Weather",
-    "descr": "simple indicator for the weather",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/gnome-weather.png",
-    "distros" : {
-      "Ubuntu" : {
-        "type" : ""
-      }
-    }
-  }, {
+  },  {
     "id": 31,
     "nombre": "Pidgin",
     "descr": "instant messasing client",
     "logo": "https://raw.githubusercontent.com/moka-project/moka-icon-theme/master/Moka/96x96%402x/apps/pidgin.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository": "ppa:pidgin-developers/ppa",
+        "package": "pidgin"
       }
     }
   }, {
@@ -309,7 +351,9 @@
     "logo": "https://s3.mzstatic.com/us/r30/Purple69/v4/e6/4c/f0/e64cf005-c867-f154-1fa0-fd8ea29611ca/icon175x175.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository": "ppa:plexapp/plexht",
+        "package": "plexhometheater"
       }
     }
   }, {
@@ -319,7 +363,8 @@
     "logo": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Popcorn_Time_logo.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "manual",
+        "postinstall": ["wget http://www67.zippyshare.com/d/79zgV98j/769/Popcorn-Time-0.3.8-5-Linux-64.tar.xz", "tar xf Popcorn-Time-0.3.8-5-Linux-64.tar.xz", "cd Popcorn-Time-0.3.8-5-Linux-64", "./install"]
       }
     }
   }, {
@@ -329,7 +374,9 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/multimedia-video-player.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository": "ppa:rvm/smplayer",
+        "package" : "smplayer smplayer-themes smplayer-translations"
       }
     }
   }, {
@@ -339,7 +386,9 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/applets-screenshooter.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository" : "ppa:maarten-baert/simplescreenrecorder",
+        "package" : "simplescreenrecorder"
       }
     }
   }, {
@@ -349,7 +398,8 @@
     "logo": "http://www.iconarchive.com/download/i98446/dakirby309/simply-styled/Spotify.ico",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "manual",
+        "install": ["apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886 && echo deb http://repository.spotify.com stable non-free | tee /etc/apt/sources.list.d/spotify.list","apt-get install spotify-client -y"]
       }
     }
   }, {
@@ -359,7 +409,9 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/sublime-text.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository": "ppa:webupd8team/sublime-text-3",
+        "package": "sublime-text-installer"
       }
     }
   }, {
@@ -369,7 +421,8 @@
     "logo": "http://icons.iconarchive.com/icons/bokehlicia/pacifica/256/synapse-icon.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "apt",
+        "package": "synapse"
       }
     }
   }, {
@@ -379,7 +432,7 @@
     "logo": "http://pre05.deviantart.net/66d4/th/pre/f/2014/160/3/e/teamviewer_by_bitingduke-d7lpfbz.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "manual"
       }
     }
   },{
@@ -389,7 +442,7 @@
     "logo": "http://www.rinorusso.it/wp-content/uploads/2011/12/nomachine.jpg",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "manual"
       }
     }
   }, {
@@ -399,7 +452,9 @@
     "logo": "https://cdn2.iconfinder.com/data/icons/metro-uinvert-dock/256/Thunderbird.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository": "ppa:mozillateam/thunderbird-next",
+        "package": "thunderbird"
       }
     }
   }, {
@@ -409,7 +464,9 @@
     "logo": "http://icons.iconarchive.com/icons/blackvariant/button-ui-app-pack-one/64/Transmission-icon.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository": "ppa:transmissionbt/ppa",
+        "package": "transmission"
       }
     }
   }, {
@@ -419,17 +476,8 @@
     "logo": "https://avatars2.githubusercontent.com/u/2131270?v=3&s=400",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
-      }
-    }
-  },{
-    "id": 44,
-    "nombre": "Tweak Tools",
-    "descr": "ElementaryOS tweak options",
-    "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/preferences-desktop.png",
-    "distros" : {
-      "Ubuntu" : {
-        "type" : ""
+        "type" : "apt",
+        "package": "qbittorrent"
       }
     }
   }, {
@@ -439,7 +487,9 @@
     "logo": "https://cdn3.iconfinder.com/data/icons/weather-icons/32/Tornado-512.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository": "ppa:apandada1/typhoon",
+        "package": "typhoon"
       }
     }
   }, {
@@ -449,7 +499,8 @@
     "logo": "http://fsdportal.com/wp-content/uploads/2012/06/unetbootin-icon.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "apt",
+        "package": "unetbootin"
       }
     }
   }, {
@@ -459,7 +510,9 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/accessories-clock.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository" : "ppa:apandada1/up-clock",
+        "package" : "up-clock"
       }
     }
   }, {
@@ -469,17 +522,9 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/vlc.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
-      }
-    }
-  }, {
-    "id": 49,
-    "nombre": "Vocal",
-    "descr": "Podcast app made for ElementaryOS",
-    "logo": "http://webmii.com/images/mic.png",
-    "distros" : {
-      "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository" : "ppa:videolan/stable-daily",
+        "package" : "vlc"
       }
     }
   }, {
@@ -489,7 +534,9 @@
     "logo": "http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/wine-icon.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository": "ppa:ubuntu-wine/ppa",
+        "package": "wine"
       }
     }
   }, {
@@ -499,7 +546,8 @@
     "logo": "https://3.bp.blogspot.com/-jOZvT0E-UxI/TzQjFzO00wI/AAAAAAAADF4/11MMNDCPKc4/s1600/1.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "apt",
+        "package": "playonlinux"
       }
     }
   }, {
@@ -509,7 +557,21 @@
     "logo": "https://raw.githubusercontent.com/snwh/paper-icon-theme/master/Paper/512x512/apps/multimedia-video-player.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : ""
+        "type" : "ppa",
+        "repository" : "ppa:elementary-os/daily",
+        "package" : "audience"
+      }
+    }
+  }, {
+    "id": 53,
+    "nombre": "Ambient Noise",
+    "descr": "Media player made for ElementaryOS",
+    "logo": "http://ubuntuhandbook.org/wp-content/uploads/2015/04/anoise-player.png",
+    "distros" : {
+      "Ubuntu" : {
+        "type" : "ppa",
+        "repository" : "ppa:costales/anoise",
+        "package" : "anoise"
       }
     }
   }]
