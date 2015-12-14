@@ -1,35 +1,93 @@
 {
   "data": [{
     "id": 1,
+    "type":"ppa",
     "name": "Moka",
-    "img": "https://oduso.com/image/53e405b1b5b5b3055f16b55d"
+    "img": "https://oduso.com/image/53e405b1b5b5b3055f16b55d",
+    "repository": "ppa:moka/stable",
+    "package": "moka-icon-theme"
   }, {
     "id": 2,
+    "type":"ppa",
     "name": "Numix-Circle",
-    "img": "https://oduso.com/image/53e67fab723768fc629173d9"
+    "img": "https://oduso.com/image/53e67fab723768fc629173d9",
+    "repository": "ppa:numix/ppa",
+    "package": "numix-icon-theme-circle"
   }, {
     "id": 3,
     "name": "El Faenza",
-    "img": "https://oduso.com/image/540631da716238d708eda94d"
+    "type":"ppa",
+    "img": "https://oduso.com/image/540631da716238d708eda94d",
+    "repository" : "ppa:tiheum/equinox",
+    "package": "faenza-icon-theme"
   }, {
     "id": 4,
     "name": "Numix-uTouch",
-    "img": "https://oduso.com/image/5407499779b43e89383a2260"
+    "type":"ppa",
+    "img": "https://oduso.com/image/5407499779b43e89383a2260",
+    "repository": "ppa:numix-icon-theme-dev/utouch",
+    "package": "numix-utouch-icon-theme"
   },{
     "id": 5,
     "name": "Tap",
-    "img": "https://oduso.com/image/54074a7579b43e89383a2261"
+    "type":"ppa",
+    "img": "https://oduso.com/image/54074a7579b43e89383a2261",
+    "repository": "ppa:spiceofdesign/tap-daily",
+    "package": "tap-icon-theme"
   }, {
     "id": 6,
     "name": "Nitrux",
-    "img": "https://oduso.com/image/54074b0a79b43e89383a2262"
+    "type":"ppa",
+    "img": "https://oduso.com/image/54074b0a79b43e89383a2262",
+    "repository": "ppa:nitrux-team/nitrux-artwork",
+    "package": "nitrux-icon-theme"
   }, {
     "id": 7,
     "name": "Pacifica",
-    "img": "https://oduso.com/image/543c0079e894790000091ff3"
+    "type":"ppa",
+    "img": "https://oduso.com/image/543c0079e894790000091ff3",
+    "repository": "ppa:fsvh/pacifica-icon-theme",
+    "package": "pacifica-icon-theme"
   }, {
     "id": 8,
     "name": "Flattr",
-    "img": "https://oduso.com/image/557237c1f6da0500006de633"
+    "type":"manual",
+    "img": "https://oduso.com/image/557237c1f6da0500006de633",
+    "install": "wget https://github.com/NitruxSA/flattr-icons/archive/master.zip -O $tmp/flattr.zip && unzip flattr.zip -d $tmp && cd flattr-icons-master && mv Flattr /usr/share/icons && mv Flattr /usr/share/icons"
+  }, {
+    "id": 9,
+    "type":"ppa",
+    "name": "Faba",
+    "img": "",
+    "repository": "ppa:moka/stable",
+    "package" : "faba-icon-theme faba-mono-icons"
+  }, {
+    "id": 10,
+    "type":"ppa",
+    "name": "Orchis",
+    "img": "",
+    "repository": "ppa:moka/stable",
+    "package" : "orchis-gtk-theme"
+  }, {
+    "id": 11,
+    "type":"ppa",
+    "name": "Numix",
+    "img": "",
+    "repository": "ppa:numix/ppa",
+    "package": "numix-icon-theme"
+  }, {
+    "id": 12,
+    "type":"ppa",
+    "name": "Ultra Flat",
+    "img": "",
+    "repository": "ppa:noobslab/icons",
+    "package": "ultra-flat-icons"
+  }, {
+    "id": 13,
+    "type":"ppa",
+    "name": "Paper",
+    "img": "",
+    "repository": "ppa:snwh/pulp",
+    "package": "paper-icon-theme"
   }]
 }
