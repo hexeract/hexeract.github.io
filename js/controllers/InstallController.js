@@ -11,7 +11,7 @@ appInstaller.controller('InstallController', function($scope, $window, $mdDialog
     var distro = $scope.distro;
 
     InstallerFactory.getInstaller(prof, distro).then(function (installer) {
-      var blob = new Blob([installer], {type: "application/x-sh;charset=utf-8"}),
+      var blob = new Blob([installer], {type: "application/x-sh;charset=utf-8"});
       $scope.url = $window.URL.createObjectURL(blob);
       target.click();
       $window.URL.revokeObjectURL($scope.url);
