@@ -293,6 +293,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
         if (settings.log){
           body += "# Create a secure LOG file\n" +
                   "log=\"" + settings.log +"\"\n" +
+                  "touch \"$log\"\n" +
                   "> $log";
         }else{
           body += "# By default log in /dev/null\n" +
