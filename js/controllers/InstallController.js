@@ -4,10 +4,8 @@ appInstaller.controller('InstallController', function($scope, $mdDialog, profile
   $scope.distros = ['Ubuntu'];
 
   $scope.download = function() {
-
     var prof = $scope.$parent.profiles[$scope.$parent.profile];
     var distro = $scope.distro;
-
   };
 
   $scope.install = function() {

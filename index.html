@@ -10,7 +10,7 @@
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  
   <script src="bower_components/jquery/dist/jquery.js" charset="utf-8"></script>
 
   <!-- Angular Material Dependencies -->
@@ -49,28 +49,6 @@
         <span>Hexeract</span>
       </h2>
       <span flex></span>
-      <md-fab-speed-dial ng-hide="share.hidden" md-direction="left" md-open="share.isOpen"
-                       class="md-scale md-fab-top-right" ng-class="{ 'md-hover-full': share.hover }"
-                       ng-mouseenter="share.isOpen=true" ng-mouseleave="share.isOpen=false">
-      <md-fab-trigger>
-        <md-button aria-label="menu" class="md-fab md-warn">
-          <md-tooltip md-direction="top" md-visible="tooltipVisible">Menu</md-tooltip>
-          <md-icon class="material-icons">share</md-icon>
-        </md-button>
-      </md-fab-trigger>
-      <md-fab-actions>
-        <div ng-repeat="item in share.items">
-          <md-button aria-label="{{item.name}}" class="md-fab md-raised md-mini"
-                     ng-click="share.openDialog($event, item)">
-            <md-tooltip md-direction="{{item.direction}}" md-visible="tooltipVisible"
-                        md-autohide="false">
-              {{item.name}}
-            </md-tooltip>
-            <md-icon md-svg-src="{{item.icon}}" aria-label="{{item.name}}"></md-icon>
-          </md-button>
-        </div>
-      </md-fab-actions>
-    </md-fab-speed-dial>
     </div>
   </md-toolbar>
   <div id="main-container">

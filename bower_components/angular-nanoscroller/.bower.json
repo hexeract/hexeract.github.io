@@ -34,5 +34,6 @@
   },
   "_source": "git://github.com/maxaon/angular-nanoscroller.git",
   "_target": "~0.2.1",
-  "_originalSource": "angular-nanoscroller"
+  "_originalSource": "angular-nanoscroller",
+  "_direct": true
 }
