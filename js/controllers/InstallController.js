@@ -1,4 +1,4 @@
-appInstaller.controller('InstallController', function($scope, $window, document, $mdDialog, profileService, InstallerFactory) {
+appInstaller.controller('InstallController', function($scope, $window, $mdDialog, profileService, InstallerFactory) {
 
   $scope.distro = 'Ubuntu';
   $scope.distros = ['Ubuntu'];
