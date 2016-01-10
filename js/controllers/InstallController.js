@@ -16,7 +16,7 @@ appInstaller.controller('InstallController', function($scope, $window, $mdDialog
       var blob = new Blob([installer], {type: "application/x-sh;charset=utf-8"}),
           url = $window.URL.createObjectURL(blob);
         a.href = url;
-        a.download = "script.sh";
+        a.download = "hexeract.sh";
         a.click();
       $window.URL.revokeObjectURL($scope.url);
     });
