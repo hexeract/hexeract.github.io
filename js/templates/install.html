@@ -6,7 +6,9 @@
   </div>
   <div flex="100" layout="column">
     <div style="text-align:center">
-      <md-button ng-href="{{ url }}" download="script.sh">Download!</md-button>
+      <md-button ng-href="{{ url }}" download="script.sh" ng-click="download()">
+        Download!
+      </md-button>
     </div>
   </div>
 </section>
