@@ -1,12 +1,12 @@
-appInstaller.controller('InstallController', function($scope, $window, $document, $mdDialog, profileService, InstallerFactory) {
+appInstaller.controller('InstallController', function($scope, $window, document, $mdDialog, profileService, InstallerFactory) {
 
   $scope.distro = 'Ubuntu';
   $scope.distros = ['Ubuntu'];
   $scope.url = "";
 
   $scope.download = function() {
-    var a = $document.createElement("a");
-    $document.body.appendChild(a);
+    var a = document.createElement("a");
+    document.body.appendChild(a);
     a.style = "display: none";
 
     var prof = $scope.$parent.profiles[$scope.$parent.profile];
