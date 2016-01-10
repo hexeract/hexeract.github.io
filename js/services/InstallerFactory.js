@@ -263,9 +263,7 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
   };
 
   this.getInstaller = function(profile, distro, settings) {
-    var _defaults = {
-      'log': '~/hexeract.log'
-    };
+    var _defaults = {};
 
     settings = angular.extend({}, settings, _defaults);
 
@@ -293,7 +291,6 @@ appInstaller.service('InstallerFactory', function($q, Applications, Icons, Theme
         if (settings.log){
           body += "# Create a secure LOG file\n" +
                   "log=\"" + settings.log +"\"\n" +
-                  "touch \"$log\"\n" +
                   "> $log";
         }else{
           body += "# By default log in /dev/null\n" +
