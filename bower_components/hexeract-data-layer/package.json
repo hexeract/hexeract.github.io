@@ -1,0 +1,22 @@
+{
+  "name": "hexeract-data-layer",
+  "version": "1.0.0",
+  "description": "capa de datos para Hexeract",
+  "main": "apps.json",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luchopcerra/hexeract-data-layer.git"
+  },
+  "keywords": [
+    "data"
+  ],
+  "author": "Luciano Perez Cerra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luchopcerra/hexeract-data-layer/issues"
+  },
+  "homepage": "https://github.com/luchopcerra/hexeract-data-layer#readme"
+}

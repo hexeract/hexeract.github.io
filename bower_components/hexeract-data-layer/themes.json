@@ -1,0 +1,44 @@
+{
+  "data":[{
+    "id": 1,
+    "name": "Paper",
+    "type": "ppa",
+    "img": "https://2.bp.blogspot.com/-4IL8597IZR8/VJLHCI1yn_I/AAAAAAAAVGk/e48Wu0ADIeM/s1600/paper-gtk-theme-of.png",
+    "repository": "ppa:snwh/pulp",
+    "package": "paper-gtk-theme"
+  }, {
+    "id": 2,
+    "name": "Vertex",
+    "type": "ppa",
+    "img": "https://raw.githubusercontent.com/matias-pierobon/app-installer/master/web/img/vertex%20theme.png",
+    "repository": "ppa:noobslab/themes",
+    "package": "vertex-theme"
+  }, {
+    "id": 3,
+    "name": "Numix",
+    "type": "ppa",
+    "img": "http://worldofgnome.org/uploads/2013/03/numix___gtk3_theme_by_satya164-d5ygul6.jpg",
+    "repository": "ppa:numix/ppa",
+    "package": "numix-gtk-theme"
+  }, {
+    "id": 4,
+    "name": "Arc",
+    "type": "manual",
+    "img": "https://camo.githubusercontent.com/b07bd2390cdd348e6404e46a97e3f35d2be5c25e/687474703a2f2f692e696d6775722e636f6d2f7444314f4251332e706e67",
+    "install": ["wget http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_15.04/all/arc-theme_1450051815.946cbf5_all.deb -O $tmp/arc-theme.deb" , "dpkg -i $tmp/arc-theme.deb"]
+  }, {
+    "id": 5,
+    "name": "Flatabulous",
+    "type": "ppa",
+    "img": "https://camo.githubusercontent.com/396eb7d91c4e97c5aa7ef8109066de69cc0cad7d/687474703a2f2f692e696d6775722e636f6d2f30535a727265332e706e67",
+    "repository": "ppa:noobslab/themes",
+    "package": "flatabulous-theme"
+  }, {
+    "id": 6,
+    "name": "Orchis",
+    "type": "ppa",
+    "img": "http://i1-news.softpedia-static.com/images/news2/Orchis-GTK3-Theme-for-Ubuntu-Fedora-openSUSE-and-Arch-Linux-Is-Simply-Beautiful-437379-2.jpg",
+    "repository": "ppa:moka/stable",
+    "package" : "orchis-gtk-theme"
+  }]
+}

@@ -2,7 +2,7 @@
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.0.0-rc7-master-f376178
+ * v1.0.1-master-226f72f
  */
 goog.provide('ng.material.components.dialog');
 goog.require('ng.material.components.backdrop');
@@ -636,8 +636,13 @@ function MdDialogProvider($$interimElementProvider) {
       options.hideBackdrop(options.$destroy);
 
       // Remove the focus traps that we added earlier for keeping focus within the dialog.
-      topFocusTrap.parentNode.removeChild(topFocusTrap);
-      bottomFocusTrap.parentNode.removeChild(bottomFocusTrap);
+      if (topFocusTrap && topFocusTrap.parentNode) {
+        topFocusTrap.parentNode.removeChild(topFocusTrap);
+      }
+
+      if (bottomFocusTrap && bottomFocusTrap.parentNode) {
+        bottomFocusTrap.parentNode.removeChild(bottomFocusTrap);
+      }
 
       // For navigation $destroy events, do a quick, non-animated removal,
       // but for normal closes (from clicks, etc) animate the removal
@@ -884,7 +889,9 @@ function MdDialogProvider($$interimElementProvider) {
 
       // When focus is about to move out of the dialog, we want to intercept it and redirect it
       // back to the dialog element.
-      var focusHandler = angular.bind(element, element.focus);
+      var focusHandler = function() {
+        element.focus();
+      };
       topFocusTrap.addEventListener('focus', focusHandler);
       bottomFocusTrap.addEventListener('focus', focusHandler);
 

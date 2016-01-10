@@ -2,7 +2,7 @@
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.0.0-rc7-master-f376178
+ * v1.0.1-master-226f72f
  */
 (function( window, angular, undefined ){
 "use strict";
@@ -3436,7 +3436,9 @@ function InterimElementProvider() {
   function buildUpdateFn(element, className, attrs) {
     return function updateAttrValue(fallback) {
       if (!needsInterpolation(fallback)) {
-        element.attr(className, fallback);
+        // Do not modify the element's attribute value; so
+        // uses '<ui-layout layout="/api/sidebar.html" />' will not
+        // be affected. Just update the attrs value.
         attrs[attrs.$normalize(className)] = fallback;
       }
     };
@@ -9453,8 +9455,13 @@ function MdDialogProvider($$interimElementProvider) {
       options.hideBackdrop(options.$destroy);
 
       // Remove the focus traps that we added earlier for keeping focus within the dialog.
-      topFocusTrap.parentNode.removeChild(topFocusTrap);
-      bottomFocusTrap.parentNode.removeChild(bottomFocusTrap);
+      if (topFocusTrap && topFocusTrap.parentNode) {
+        topFocusTrap.parentNode.removeChild(topFocusTrap);
+      }
+
+      if (bottomFocusTrap && bottomFocusTrap.parentNode) {
+        bottomFocusTrap.parentNode.removeChild(bottomFocusTrap);
+      }
 
       // For navigation $destroy events, do a quick, non-animated removal,
       // but for normal closes (from clicks, etc) animate the removal
@@ -9701,7 +9708,9 @@ function MdDialogProvider($$interimElementProvider) {
 
       // When focus is about to move out of the dialog, we want to intercept it and redirect it
       // back to the dialog element.
-      var focusHandler = angular.bind(element, element.focus);
+      var focusHandler = function() {
+        element.focus();
+      };
       topFocusTrap.addEventListener('focus', focusHandler);
       bottomFocusTrap.addEventListener('focus', focusHandler);
 
@@ -9970,6 +9979,8 @@ MdDividerDirective.$inject = ["$mdTheming"];
     setupDefaults();
     setupListeners();
     setupWatchers();
+
+    var initialAnimationAttempts = 0;
     fireInitialAnimations();
 
     function setupDefaults() {
@@ -9981,6 +9992,9 @@ MdDividerDirective.$inject = ["$mdTheming"];
 
       // Start the keyboard interaction at the first action
       resetActionIndex();
+
+      // Add an animations waiting class so we know not to run
+      $element.addClass('md-animations-waiting');
     }
 
     function setupListeners() {
@@ -10074,11 +10088,23 @@ MdDividerDirective.$inject = ["$mdTheming"];
       });
     }
 
-    // Fire the animations once in a separate digest loop to initialize them
     function fireInitialAnimations() {
-      $mdUtil.nextTick(function() {
-        $animate.addClass($element, 'md-noop');
-      });
+      // If the element is actually visible on the screen
+      if ($element[0].scrollHeight > 0) {
+        // Fire our animation
+        $animate.addClass($element, 'md-animations-ready').then(function() {
+          // Remove the waiting class
+          $element.removeClass('md-animations-waiting');
+        });
+      }
+
+      // Otherwise, try for up to 1 second before giving up
+      else if (initialAnimationAttempts < 10) {
+        $timeout(fireInitialAnimations, 100);
+
+        // Increment our counter
+        initialAnimationAttempts = initialAnimationAttempts + 1;
+      }
     }
 
     function enableKeyboard() {
@@ -10340,6 +10366,11 @@ MdDividerDirective.$inject = ["$mdTheming"];
     function delayDone(done) { $timeout(done, cssAnimationDuration, false); }
 
     function runAnimation(element) {
+      // Don't run if we are still waiting and we are not ready
+      if (element.hasClass('md-animations-waiting') && !element.hasClass('md-animations-ready')) {
+        return;
+      }
+
       var el = element[0];
       var ctrl = element.controller('mdFabSpeedDial');
       var items = el.querySelectorAll('.md-fab-action-item');
@@ -10410,8 +10441,10 @@ MdDividerDirective.$inject = ["$mdTheming"];
       addClass: function(element, className, done) {
         if (element.hasClass('md-fling')) {
           runAnimation(element);
+          delayDone(done);
+        } else {
+          done();
         }
-        delayDone(done);
       },
       removeClass: function(element, className, done) {
         runAnimation(element);
@@ -11755,7 +11788,10 @@ function inputTextareaDirective($mdUtil, $window, $mdAria) {
     }
 
     var isErrorGetter = containerCtrl.isErrorGetter || function() {
-      return ngModelCtrl.$invalid && (ngModelCtrl.$touched || ngModelCtrl.$$parentForm.$submitted);
+      return ngModelCtrl.$invalid && (
+        ngModelCtrl.$touched ||
+        (ngModelCtrl.$$parentForm && ngModelCtrl.$$parentForm.$submitted)
+      );
     };
 
     scope.$watch(isErrorGetter, containerCtrl.setInvalid);
@@ -13558,13 +13594,8 @@ function SelectDirective($mdSelect, $mdUtil, $mdTheming, $mdAria, $compile, $par
     attr.tabindex = attr.tabindex || '0';
 
     return function postLink(scope, element, attr, ctrls) {
+      var untouched = true;
       var isDisabled, ariaLabelBase;
-
-      // Remove event ngModel's blur listener for touched and untouched
-      // we will do it ourself.
-      $mdUtil.nextTick(function() {
-        element.off('blur');
-      });
 
       var containerCtrl = ctrls[0];
       var mdSelectCtrl = ctrls[1];
@@ -13655,11 +13686,22 @@ function SelectDirective($mdSelect, $mdUtil, $mdTheming, $mdAria, $compile, $par
             if (containerCtrl && containerCtrl.element.hasClass('md-input-has-value')) {
               containerCtrl.setFocused(true);
             }
-          })
-          .on('blur', function(ev) {
+          });
+
+        // Wait until postDigest so that we attach after ngModel's 
+        // blur listener so we can set untouched.
+        $mdUtil.nextTick(function () {
+          element.on('blur', function() {
+            if (untouched) {
+              untouched = false;
+              ngModelCtrl.$setUntouched();
+            }
+
+            if (selectScope.isOpen) return;
             containerCtrl && containerCtrl.setFocused(false);
             inputCheckValue();
           });
+        });
       }
 
       mdSelectCtrl.triggerClose = function() {
@@ -13775,6 +13817,7 @@ function SelectDirective($mdSelect, $mdUtil, $mdTheming, $mdAria, $compile, $par
               containerCtrl.setHasValue(false);
               containerCtrl.input = null;
             }
+            ngModelCtrl.$setTouched();
           });
       });
 
@@ -13790,7 +13833,7 @@ function SelectDirective($mdSelect, $mdUtil, $mdTheming, $mdAria, $compile, $par
         selectContainer = angular.element(
           element[0].querySelector('.md-select-menu-container')
         );
-        selectScope = selectContainer.scope();
+        selectScope = scope;
         if (element.attr('md-container-class')) {
           var value = selectContainer[0].getAttribute('class') + ' ' + element.attr('md-container-class');
           selectContainer[0].setAttribute('class', value);
@@ -13839,6 +13882,7 @@ function SelectDirective($mdSelect, $mdUtil, $mdTheming, $mdAria, $compile, $par
           loadingAsync: attr.mdOnOpen ? scope.$eval(attr.mdOnOpen) || true : false
         }).finally(function() {
           selectScope.isOpen = false;
+          element.focus();
           element.attr('aria-expanded', 'false');
           ngModelCtrl.$setTouched();
         });
@@ -14647,7 +14691,7 @@ function SelectProvider($$interimElementProvider) {
      * Calculate the
      */
     function calculateMenuPositions(scope, element, opts) {
-      var 
+      var
         containerNode = element[0],
         targetNode = opts.target[0].children[0], // target the label
         parentNode = $document[0].body,
@@ -14669,13 +14713,13 @@ function SelectProvider($$interimElementProvider) {
           bottom: bounds.bottom - (targetRect.top + targetRect.height)
         },
         maxWidth = parentRect.width - SELECT_EDGE_MARGIN * 2,
-        isScrollable = contentNode.scrollHeight > contentNode.offsetHeight,
         selectedNode = selectNode.querySelector('md-option[selected]'),
         optionNodes = selectNode.getElementsByTagName('md-option'),
-        optgroupNodes = selectNode.getElementsByTagName('md-optgroup');
+        optgroupNodes = selectNode.getElementsByTagName('md-optgroup'),
+        isScrollable = calculateScrollable(element, contentNode),
+        centeredNode;
 
       var loading = isPromiseLike(opts.loadingAsync);
-      var centeredNode;
       if (!loading) {
         // If a selected node, center around that
         if (selectedNode) {
@@ -14757,7 +14801,7 @@ function SelectProvider($$interimElementProvider) {
       } else {
         left = (targetRect.left + centeredRect.left - centeredRect.paddingLeft) + 2;
         top = Math.floor(targetRect.top + targetRect.height / 2 - centeredRect.height / 2 -
-            centeredRect.top + contentNode.scrollTop) + 4;
+            centeredRect.top + contentNode.scrollTop) + 2;
 
         transformOrigin = (centeredRect.left + targetRect.width / 2) + 'px ' +
           (centeredRect.top + centeredRect.height / 2 - contentNode.scrollTop) + 'px 0px';
@@ -14807,6 +14851,25 @@ function SelectProvider($$interimElementProvider) {
       width: node.offsetWidth,
       height: node.offsetHeight
     } : {left: 0, top: 0, width: 0, height: 0};
+  }
+
+  function calculateScrollable(element, contentNode) {
+    var isScrollable = false;
+
+    try {
+      var oldDisplay = element[0].style.display;
+
+      // Set the element's display to block so that this calculation is correct
+      element[0].style.display = 'block';
+
+      isScrollable = contentNode.scrollHeight > contentNode.offsetHeight;
+
+      // Reset it back afterwards
+      element[0].style.display = oldDisplay;
+    } finally {
+      // Nothing to do
+    }
+    return isScrollable;
   }
 }
 SelectProvider.$inject = ["$$interimElementProvider"];
@@ -16569,6 +16632,9 @@ MdToastDirective.$inject = ["$mdToast"];
   *     have an outer `md-toast` element.
   *   - `template` - `{string=}`: Same as templateUrl, except this is an actual
   *     template string.
+  *   - `autoWrap` - `{boolean=}`: Whether or not to automatically wrap the template content with a
+  *     `<div class="md-toast-content">` if one is not provided. Defaults to true. Can be disabled if you provide a
+  *     custom toast directive.
   *   - `scope` - `{object=}`: the scope to link the template / controller to. If none is specified, it will create a new child scope.
   *     This scope will be destroyed when the toast is removed unless `preserveScope` is set to true.
   *   - `preserveScope` - `{boolean=}`: whether to preserve the scope when the element is removed. Default is false
@@ -16691,7 +16757,28 @@ function MdToastProvider($$interimElementProvider) {
       onRemove: onRemove,
       position: 'bottom left',
       themable: true,
-      hideDelay: 3000
+      hideDelay: 3000,
+      autoWrap: true,
+      transformTemplate: function(template, options) {
+        var shouldAddWrapper = options.autoWrap && template && !/md-toast-content/g.test(template);
+
+        if (shouldAddWrapper) {
+          // Root element of template will be <md-toast>. We need to wrap all of its content inside of
+          // of <div class="md-toast-content">. All templates provided here should be static, developer-controlled
+          // content (meaning we're not attempting to guard against XSS).
+          var parsedTemplate = angular.element(template);
+          var wrappedContent = '<div class="md-toast-content">' + parsedTemplate.html() + '</div>';
+
+          parsedTemplate.empty().append(wrappedContent);
+
+          // Underlying interimElement expects a template string.
+          return parsedTemplate[0].outerHTML;
+        }
+
+        return shouldAddWrapper ?
+            '<div class="md-toast-content">' + template + '</div>' :
+            template || '';
+      }
     };
 
     function onShow(scope, element, options) {
@@ -17412,6 +17499,8 @@ function VirtualRepeatContainerController(
   this.originalSize = null;
   /** @type {number} Amount to offset the total scroll size by. */
   this.offsetSize = parseInt(this.$attrs.mdOffsetSize, 10) || 0;
+  /** @type {?string} height or width element style on the container prior to auto-shrinking. */
+  this.oldElementSize = null;
 
   if (this.$attrs.mdTopIndex) {
     /** @type {function(angular.Scope): number} Binds to topIndex on Angular scope */
@@ -17493,8 +17582,16 @@ VirtualRepeatContainerController.prototype.getSize = function() {
  * @param {number} The new size to set.
  */
 VirtualRepeatContainerController.prototype.setSize_ = function(size) {
+  var dimension = this.getDimensionName_();
+
   this.size = size;
-  this.$element[0].style[this.isHorizontal() ? 'width' : 'height'] = size + 'px';
+  this.$element[0].style[dimension] = size + 'px';
+};
+
+
+VirtualRepeatContainerController.prototype.unsetSize_ = function() {
+  this.$element[0].style[this.getDimensionName_()] = this.oldElementSize;
+  this.oldElementSize = null;
 };
 
 
@@ -17506,6 +17603,11 @@ VirtualRepeatContainerController.prototype.updateSize = function() {
       ? this.$element[0].clientWidth
       : this.$element[0].clientHeight;
 
+  // Recheck the scroll position after updating the size. This resolves
+  // problems that can result if the scroll position was measured while the
+  // element was display: none or detached from the document.
+  this.handleScroll_();
+
   this.repeater && this.repeater.containerUpdated();
 };
 
@@ -17516,13 +17618,18 @@ VirtualRepeatContainerController.prototype.getScrollSize = function() {
 };
 
 
+VirtualRepeatContainerController.prototype.getDimensionName_ = function() {
+  return this.isHorizontal() ? 'width' : 'height';
+};
+
+
 /**
  * Sets the scroller element to the specified size.
  * @private
  * @param {number} size The new size.
  */
 VirtualRepeatContainerController.prototype.sizeScroller_ = function(size) {
-  var dimension =  this.isHorizontal() ? 'width' : 'height';
+  var dimension =  this.getDimensionName_();
   var crossDimension = this.isHorizontal() ? 'height' : 'width';
 
   // Clear any existing dimensions.
@@ -17564,6 +17671,10 @@ VirtualRepeatContainerController.prototype.sizeScroller_ = function(size) {
 VirtualRepeatContainerController.prototype.autoShrink_ = function(size) {
   var shrinkSize = Math.max(size, this.autoShrinkMin * this.repeater.getItemSize());
   if (this.autoShrink && shrinkSize !== this.size) {
+    if (this.oldElementSize === null) {
+      this.oldElementSize = this.$element[0].style[this.getDimensionName_()];
+    }
+
     var currentSize = this.originalSize || this.size;
     if (!currentSize || shrinkSize < currentSize) {
       if (!this.originalSize) {
@@ -17571,9 +17682,10 @@ VirtualRepeatContainerController.prototype.autoShrink_ = function(size) {
       }
 
       this.setSize_(shrinkSize);
-    } else if (this.originalSize) {
-      this.setSize_(this.originalSize);
+    } else if (this.originalSize !== null) {
+      this.unsetSize_();
       this.originalSize = null;
+      this.updateSize();
     }
 
     this.repeater.containerUpdated();
@@ -21434,7 +21546,7 @@ function MenuController($mdMenu, $attrs, $element, $scope, $mdUtil, $timeout, $r
         self.currentlyOpenMenu = undefined;
       }
     }));
-    menuItems = angular.element($mdUtil.nodesToArray(menuContainer[0].querySelectorAll('md-menu-item')));
+    menuItems = angular.element($mdUtil.nodesToArray(menuContainer[0].children[0].children));
     menuItems.on('mouseenter', self.handleMenuItemHover);
     menuItems.on('mouseleave', self.handleMenuItemMouseLeave);
   };
@@ -21463,8 +21575,8 @@ function MenuController($mdMenu, $attrs, $element, $scope, $mdUtil, $timeout, $r
         self.currentlyOpenMenu.close(true, { closeTo: closeTo });
       } else if (nestedMenu && !nestedMenu.isOpen && nestedMenu.open) {
         self.isAlreadyOpening = true;
+        nestedMenu.open();
       }
-      nestedMenu && nestedMenu.open();
     }, nestedMenu ? 100 : 250);
     var focusableTarget = event.currentTarget.querySelector('button:not([disabled])');
     focusableTarget && focusableTarget.focus();
@@ -23758,7 +23870,9 @@ function MdTabsController ($scope, $element, $window, $mdConstant, $mdTabInkRipp
         contentHeight = tabContent ? tabContent.offsetHeight : 0,
         tabsHeight    = elements.wrapper.offsetHeight,
         newHeight     = contentHeight + tabsHeight,
-        currentHeight = $element.prop('offsetHeight');
+        currentHeight = $element.prop('clientHeight');
+
+    if (currentHeight === newHeight) return;
 
     // Adjusts calculations for when the buttons are bottom-aligned since this relies on absolute
     // positioning.  This should probably be cleaned up if a cleaner solution is possible.
@@ -24131,4 +24245,4 @@ angular.module("material.core").constant("$MD_THEME_CSS", "md-autocomplete.md-TH
 })();
 
 
-})(window, window.angular);;window.ngMaterial={version:{full: "1.0.0-rc7-master-f376178"}};
+})(window, window.angular);;window.ngMaterial={version:{full: "1.0.1-master-226f72f"}};

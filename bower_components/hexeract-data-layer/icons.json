@@ -1,0 +1,77 @@
+{
+  "data": [{
+    "id": 1,
+    "type":"ppa",
+    "name": "Moka",
+    "img": "https://oduso.com/image/53e405b1b5b5b3055f16b55d",
+    "repository": "ppa:moka/stable",
+    "package": "moka-icon-theme"
+  }, {
+    "id": 2,
+    "type":"ppa",
+    "name": "Numix-Circle",
+    "img": "https://oduso.com/image/53e67fab723768fc629173d9",
+    "repository": "ppa:numix/ppa",
+    "package": "numix-icon-theme-circle"
+  }, {
+    "id": 3,
+    "name": "El Faenza",
+    "type":"ppa",
+    "img": "https://oduso.com/image/540631da716238d708eda94d",
+    "repository" : "ppa:noobslab/icons",
+    "package": "faenza-icon-theme"
+  }, {
+    "id": 4,
+    "name": "Numix-uTouch",
+    "type":"manual",
+    "img": "https://oduso.com/image/5407499779b43e89383a2260",
+    "install": ["apt-get install git -y", "git clone https://github.com/numixproject/numix-icon-theme-utouch.git $tmp/utouch", "mv $tmp/utouch/Numix-uTouch /usr/share/icons/"]
+  }, {
+    "id": 6,
+    "name": "Nitrux",
+    "type":"ppa",
+    "img": "https://oduso.com/image/54074b0a79b43e89383a2262",
+    "repository": "ppa:nitrux-team/nitrux-artwork",
+    "package": "nitrux-icon-theme"
+  }, {
+    "id": 7,
+    "name": "Pacifica",
+    "type":"manual",
+    "img": "https://oduso.com/image/543c0079e894790000091ff3",
+    "install": ["wget http://fc00.deviantart.net/fs71/f/2013/305/9/6/pacifica_icons_by_bokehlicia-d6nn5lb.zip -O $tmp/pacifica.zip", "unzip $tmp/pacifica.zip -d $tmp", "mv $tmp/Pacifica /usr/share/icons/", "mv $tmp/Pacifica-U /usr/share/icons/"]
+  }, {
+    "id": 8,
+    "name": "Flattr",
+    "type":"manual",
+    "img": "https://oduso.com/image/557237c1f6da0500006de633",
+    "install": "wget https://github.com/NitruxSA/flattr-icons/archive/master.zip -O $tmp/flattr.zip && unzip $tmp/flattr.zip -d $tmp && mv $tmp/flattr-icons-master/Flattr /usr/share/icons"
+  }, {
+    "id": 9,
+    "type":"ppa",
+    "name": "Faba",
+    "img": "http://i.imgur.com/eyHtpie.png",
+    "repository": "ppa:moka/stable",
+    "package" : "faba-icon-theme faba-mono-icons"
+  }, {
+    "id": 11,
+    "type":"ppa",
+    "name": "Numix",
+    "img": "",
+    "repository": "ppa:numix/ppa",
+    "package": "numix-icon-theme"
+  }, {
+    "id": 12,
+    "type":"ppa",
+    "name": "Ultra Flat",
+    "img": "http://i.imgur.com/ruFxsCg.png",
+    "repository": "ppa:noobslab/icons",
+    "package": "ultra-flat-icons"
+  }, {
+    "id": 13,
+    "type":"ppa",
+    "name": "Paper",
+    "img": "http://i.imgur.com/DEoR5Ds.png",
+    "repository": "ppa:snwh/pulp",
+    "package": "paper-icon-theme"
+  }]
+}
