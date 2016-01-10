@@ -37,6 +37,5 @@
   },
   "_source": "git://github.com/jamesflorentino/nanoScrollerJS.git",
   "_target": "~0.8.7",
-  "_originalSource": "nanoscroller",
-  "_direct": true
+  "_originalSource": "nanoscroller"
 }

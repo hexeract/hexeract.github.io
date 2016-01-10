@@ -23,10 +23,9 @@
   }, {
     "id": 4,
     "name": "Arc",
-    "type": "ppa",
+    "type": "manual",
     "img": "https://camo.githubusercontent.com/b07bd2390cdd348e6404e46a97e3f35d2be5c25e/687474703a2f2f692e696d6775722e636f6d2f7444314f4251332e706e67",
-    "repository": "ppa:noobslab/themes",
-    "package": "arc-theme"
+    "install": ["wget http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_15.04/all/arc-theme_1450051815.946cbf5_all.deb -O $tmp/arc-theme.deb" , "dpkg -i $tmp/arc-theme.deb"]
   }, {
     "id": 5,
     "name": "Flatabulous",
@@ -38,7 +37,7 @@
     "id": 6,
     "name": "Orchis",
     "type": "ppa",
-    "img": "",
+    "img": "http://i1-news.softpedia-static.com/images/news2/Orchis-GTK3-Theme-for-Ubuntu-Fedora-openSUSE-and-Arch-Linux-Is-Simply-Beautiful-437379-2.jpg",
     "repository": "ppa:moka/stable",
     "package" : "orchis-gtk-theme"
   }]

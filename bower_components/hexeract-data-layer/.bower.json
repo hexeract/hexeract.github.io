@@ -18,11 +18,11 @@
     "test",
     "tests"
   ],
-  "_release": "edd123ff48",
+  "_release": "abaefe3fe9",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "edd123ff4832d9aa7c69dc89a757dc6e620a6dd4"
+    "commit": "abaefe3fe932883e55cd257b941ee1d17edb4508"
   },
   "_source": "https://github.com/luchopcerra/hexeract-data-layer.git",
   "_target": "*",
