@@ -13,7 +13,7 @@ appInstaller.controller('InstallController', function($scope, $window, $mdDialog
     InstallerFactory.getInstaller(prof, distro).then(function (installer) {
       var blob = new Blob([installer], {type: "application/x-sh;charset=utf-8"});
       $scope.url = $window.URL.createObjectURL(blob);
-      target.click();
+      target.triggerHandler('click');
       $window.URL.revokeObjectURL($scope.url);
     });
   };
