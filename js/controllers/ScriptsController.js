@@ -1,19 +1,27 @@
-appInstaller.controller('ScriptsController', function($scope, Scripts) {
+appInstaller.controller('ScriptsController', function($scope, Scripts, profileService) {
 
-  $scope.scripts = null;
   Scripts.getAll().then(function(response){
     $scope.scripts = response.data;
   });
 
-  $scope.selected = [];
-
   $scope.toggle = function (script) {
-    var idx = $scope.selected.indexOf(script.id);
-    if (idx > -1) $scope.selected.splice(idx, 1);
-    else $scope.selected.push(script.id);
+    var idx = $scope.$parent.profiles[$scope.$parent.profile].scripts.indexOf(script.id);
+    if (idx > -1) $scope.$parent.profiles[$scope.$parent.profile].scripts.splice(idx, 1);
+    else $scope.$parent.profiles[$scope.$parent.profile].scripts.push(script.id);
   };
 
   $scope.exists = function (script) {
-    return $scope.selected.indexOf(script.id) > -1;
+    return $scope.$parent.profiles[$scope.$parent.profile].scripts.indexOf(script.id) > -1;
+  };
+
+  $scope.selectAll = function () {
+    angular.forEach($scope.scripts,function(script,key){
+      if($scope.$parent.profiles[$scope.$parent.profile].scripts.indexOf(script.id) == -1)
+        $scope.$parent.profiles[$scope.$parent.profile].scripts.push(script.id);
+    });
+  };
+
+  $scope.disableAll = function () {
+    $scope.$parent.profiles[$scope.$parent.profile].scripts = [];
   };
 });

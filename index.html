@@ -1,7 +1,7 @@
 <html ng-app="app-installer">
 
 <head>
-  <title>App Installer</title>
+  <title>Hexeract</title>
   <!--Import Google Icon Font-->
   <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons|Roboto:100,300,400,500">
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
@@ -11,17 +11,18 @@
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- JQuery -->
   <script src="bower_components/jquery/dist/jquery.js" charset="utf-8"></script>
 
-  <!-- AngularJS -->
+  <!-- Angular Material Dependencies -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-aria/angular-aria.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js" charset="utf-8"></script>
   <script src="bower_components/angular-material/angular-material.js"></script>
-  <script src="bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.js" charset="utf-8"></script>
+  <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+  <script src="bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.js"></script>
   <script src="bower_components/angular-nanoscroller/scrollable.js"></script>
 </head>
 
@@ -39,14 +40,37 @@
       </md-list>
     </md-content>
   </md-sidenav>
-  <md-toolbar class="md-primary md-hue-2" md-scroll-shrink ng-if="true">
+  <md-toolbar class="md-primary md-hue-2" md-scroll-shrink ng-if="true" ng-style="{'-webkit-app-region': 'drag'}">
     <div class="md-toolbar-tools">
-      <md-button class="md-icon-button" aria-label="Menu" ng-click="toggleNav()">
+      <md-button class="md-icon-button" aria-label="Menu" ng-click="toggleNav()" style="-webkit-app-region: no-drag;">
         <i class="material-icons">menu</i>
       </md-button>
       <h2>
         <span>Hexeract</span>
       </h2>
+      <span flex></span>
+      <md-fab-speed-dial ng-hide="share.hidden" md-direction="left" md-open="share.isOpen"
+                       class="md-scale md-fab-top-right" ng-class="{ 'md-hover-full': share.hover }"
+                       ng-mouseenter="share.isOpen=true" ng-mouseleave="share.isOpen=false">
+      <md-fab-trigger>
+        <md-button aria-label="menu" class="md-fab md-warn">
+          <md-tooltip md-direction="top" md-visible="tooltipVisible">Menu</md-tooltip>
+          <md-icon class="material-icons">share</md-icon>
+        </md-button>
+      </md-fab-trigger>
+      <md-fab-actions>
+        <div ng-repeat="item in share.items">
+          <md-button aria-label="{{item.name}}" class="md-fab md-raised md-mini"
+                     ng-click="share.openDialog($event, item)">
+            <md-tooltip md-direction="{{item.direction}}" md-visible="tooltipVisible"
+                        md-autohide="false">
+              {{item.name}}
+            </md-tooltip>
+            <md-icon md-svg-src="{{item.icon}}" aria-label="{{item.name}}"></md-icon>
+          </md-button>
+        </div>
+      </md-fab-actions>
+    </md-fab-speed-dial>
     </div>
   </md-toolbar>
   <div id="main-container">
@@ -66,10 +90,13 @@
   <script src="js/services/Profiles.js" charset="utf-8"></script>
   <script src="js/controllers/AppController.js" charset="utf-8"></script>
   <script src="js/controllers/AppsController.js" charset="utf-8"></script>
-  <script src="js/controllers/ThemesController.js" charset="utf-8"></script>
-  <script src="js/controllers/IconsController.js" charset="utf-8"></script>
   <script src="js/controllers/DashboardController.js" charset="utf-8"></script>
+  <script src="js/controllers/IconsController.js" charset="utf-8"></script>
+  <script src="js/controllers/InstallController.js" charset="utf-8"></script>
+  <script src="js/services/InstallerFactory.js" charset="utf-8"></script>
   <script src="js/controllers/ScriptsController.js" charset="utf-8"></script>
+  <script src="js/controllers/SettingsController.js" charset="utf-8"></script>
+  <script src="js/controllers/ThemesController.js" charset="utf-8"></script>
 </body>
 
 </html>

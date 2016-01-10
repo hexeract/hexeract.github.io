@@ -1,0 +1,104 @@
+#mainFab {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+}
+
+.nano > .nano-pane{
+  border-radius: 0!important;
+  -webkit-border-radius: 0!important;
+  -moz-border-radius: 0!important;
+  right: -1px!important;
+}
+.nano > .nano-pane > .nano-slider{
+  border-radius: 0!important;
+  -webkit-border-radius: 0!important;
+  -moz-border-radius: 0!important;
+}
+#main-container{
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.layout-column {
+  max-height: none!important;
+}
+
+
+.app-list md-card{
+  height: 68px;
+  cursor: pointer;
+}
+
+.app-list md-card > md-card-title {
+  padding: 10px 16px;
+}
+
+.app-list md-card > md-card-title > md-card-title-media{
+  height: 48px;
+}
+.app-list md-card > md-card-title > md-card-title-media:first-child{
+  margin-right: 10px;
+  padding-top: 8px;
+}
+
+.app-list md-card > md-card-title > md-card-title-media >img {
+  height: 48px;
+  width: 48px;
+}
+
+.app-list md-card > md-card-title > md-card-title-text > span{
+  line-height: 48px;
+  max-height: 48px;
+  overflow: hidden;
+  white-space: pre;
+}
+
+.themes-list md-card > md-card-header .md-title {
+  line-height:30px;
+}
+
+.themes-list md-card > md-card-header > md-switch {
+  margin: 0;
+}
+
+.themes-list md-card > .md-card-image {
+  background-position: left top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height:400px;
+}
+
+.scripts-list md-card > md-card-title {
+  min-height: 45px;
+}
+
+
+@media screen and (max-width: 960px) {
+  #main-container{
+    top: 48px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  #main-container{
+    top: 56px;
+  }
+}
+/*
+body > md-toolbar {
+  position: fixed;
+  top: 0;
+}*/
+
+.btn-lg{
+  font-size: 20px;
+  padding: 30px;
+}
+
+.text-center{
+  text-align: center;
+}

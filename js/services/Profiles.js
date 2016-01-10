@@ -1,29 +1,62 @@
-appInstaller.service('Profiles', function($window) {
-  var $this = this;
-  this.getDefaultProfile = function () {
-      return {
-        name: 'default',
-        apps: [1,2],
-        themes: [],
-        icons: [],
-        scripts: []
-      };
+appInstaller.service('profileService', function(localStorageService) {
+
+  this.getCurrentProfile = function (){
+    return localStorageService.get('profile') || 'default';
   };
 
-  this.getProfile = function (name) {
-    var profiles = $window.localStorage.getItem('profiles');
-    if(profiles == undefined){
-      $window.localStorage.setItem('profiles', [ $this.getDefaultProfile() ]);
+  this.bind = function (scope, all) {
+    if(!localStorageService.get('profiles')){
+       localStorageService.set('profiles', {
+         'default': {
+           'apps' : [],
+           'themes' : [],
+           'icons' : [],
+           'scripts' : []
+         }
+       });
     }
-    return profiles.forEach(function (profile, index){
-      if(profile.name == name ){
-        return profile;
-      }
-    });
+
+    localStorageService.bind(scope, 'profiles');
+    if (all) localStorageService.bind(scope, 'profile');
   };
 
-  this.getCurrentProfile = function () {
-    var profile = $window.localStorage.getItem('profile');
-    return (profile == undefined) ? $this.getProfile('default') : $this.getProfile(profile);
+  this.addProfile = function (scope, profile) {
+    if(profile.trim() != ''){
+      if(scope.profiles[profile] == null){
+        scope.profiles[profile] = {
+          'apps' : [],
+          'themes' : [],
+          'icons' : [],
+          'scripts' : []
+        };
+        scope.profile = profile;
+      }
+    }
+  };
+
+  this.deleteProfile = function (scope) {
+    if(scope.profile == 'default'){
+      scope.profiles.default = {
+        'apps' : [],
+        'themes' : [],
+        'icons' : [],
+        'scripts' : []
+      };
+    }else{
+      delete scope.profiles[scope.profile];
+      scope.profile = 'default';
+    }
+  };
+
+  this.clearProfiles = function (scope) {
+    scope.profiles = {
+      'default' : {
+        'apps': [],
+        'themes': [],
+        'icons': [],
+        'scripts': [],
+      }
+    };
+    scope.profile = 'default';
   };
 });
