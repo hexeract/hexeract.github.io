@@ -411,7 +411,8 @@
     "logo": "http://pre05.deviantart.net/66d4/th/pre/f/2014/160/3/e/teamviewer_by_bitingduke-d7lpfbz.png",
     "distros" : {
       "Ubuntu" : {
-        "type" : "manual"
+        "type" : "manual",
+        "install": ["wget http://download.teamviewer.com/download/teamviewer_i386.deb -O $temp/teamviewer_i386.deb","dkpg -i $temp/teamviewer_i386.deb"]
       }
     }
   },{
@@ -421,7 +422,8 @@
     "logo": "http://www.rinorusso.it/wp-content/uploads/2011/12/nomachine.jpg",
     "distros" : {
       "Ubuntu" : {
-        "type" : "manual"
+        "type" : "manual",
+        "install" : "wget http://download.nomachine.com/download/5.0/Linux/nomachine_5.0.58_1_$arch.deb -O $tmp/nomachine_5.0.58_1_$arch.deb && sudo dpkg -i $tmp/nomachine_5.0.58_1_$arch.deb"
       }
     }
   }, {
