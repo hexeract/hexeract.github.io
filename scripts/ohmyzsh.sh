@@ -1,7 +1,6 @@
 #!/bin/bash
 
 tmp=$(mktemp -d -t hexeract.XXXXXXXXXX)
-mkdir -p
 sudo apt-get install -y zsh git
 sudo chsh -s /bin/zsh
 wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O $tmp/install.sh
